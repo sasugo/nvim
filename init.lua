@@ -1,0 +1,7 @@
+require("config.set")
+require("config.keymap")
+require("config.luasnip")
+require("config.cmp")
+require("config.lsp")
+require("config.styling")
+print('Init config loading')
