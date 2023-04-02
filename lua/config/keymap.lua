@@ -83,3 +83,9 @@ keymap('t', "<A-B>", "<ESC>B", term_opts)
 keymap('t', "<A-D>", "<ESC>D", term_opts)
 keymap('t', "<A-F>", "<ESC>F", term_opts)
 
+--Error highlighting
+keymap("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", term_opts)
+keymap("n", "<leader>d[","<cmd>lua vim.diagnostic.goto_prev()<CR>", term_opts)
+keymap("n", "<leader>d]","<cmd>lua vim.diagnostic.goto_next()<CR>", term_opts)
+keymap("n", "<leader>dd","<cmd>lua vim.diagnostic.setloclist()<CR>", term_opts)
+
