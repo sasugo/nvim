@@ -52,13 +52,9 @@ return require('packer').startup(function(use)
   -- Styling code
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
-  -- use {
-  --     'prettier/vim-prettier',
-   --     run = 'npm -g install',
-    --    ft = {'javascript', 'typescript', 'css', 'less', 'scss', 'graphql', 'markdown', 'vue', 'html'}
-  -- }
-
   -- Colorschemes
   -- use 'ellisonleao/gruvbox.nvim'
-  use "rebelot/kanagawa.nvim"
+  -- use "rebelot/kanagawa.nvim"
+  use {"catppuccin/nvim", as = "catppuccin"}
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'} use 'norcalli/nvim-colorizer.lua'
  end)

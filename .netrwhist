@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/gonzalo/.local/share/nvim/site/pack/packer/start/packer.nvim'
+let g:netrw_dirhist_2='/home/gonzalo/.config/nvim'
+let g:netrw_dirhist_1='/home/gonzalo/.config/nvim/lua'
+let g:netrw_dirhist_0='/home/gonzalo/.config/nvim/lua/config'
+let g:netrw_dirhist_9='/home/gonzalo/.config/nvim/lua'
+let g:netrw_dirhist_8='/home/gonzalo/.config/nvim'
+let g:netrw_dirhist_7='/home/gonzalo/.config/nvim/after'
+let g:netrw_dirhist_6='/home/gonzalo/.config/nvim'
+let g:netrw_dirhist_5='/home/gonzalo/.config'
+let g:netrw_dirhist_4='/home/gonzalo/.config/nvim'

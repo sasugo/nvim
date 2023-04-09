@@ -10,6 +10,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.title = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.termguicolors = true
 
 vim.opt.smartindent = true
 vim.opt.cindent = true
