@@ -52,6 +52,7 @@ return require('packer').startup(function(use)
   -- Styling code
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
+
   -- Colorschemes
   -- use 'ellisonleao/gruvbox.nvim'
   -- use "rebelot/kanagawa.nvim"
