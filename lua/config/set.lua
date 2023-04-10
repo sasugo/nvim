@@ -32,8 +32,7 @@ require("nvim-tree").setup({
     update_cwd = true,
   },
   view = {
-    -- adaptive_size = true,
-    width = 30,
+    adaptive_size = true,
     side = "left",
     mappings = {
       list = {
