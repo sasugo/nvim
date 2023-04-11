@@ -2,7 +2,10 @@ local M = {}
 function M.setup()
   require("bufferline").setup({
     options = {
-      separator_style = "thic",
+      separator_style = "thick",
+      diagnostics = "nvim_lsp",
+      color_icons = true,
+      show_buffer_icons = true,
       numbers = function(opts)
         return string.format('%s|%s', opts.id, opts.raise(opts.ordinal))
       end,
