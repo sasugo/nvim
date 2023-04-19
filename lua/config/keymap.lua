@@ -19,9 +19,9 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- File navigation
-keymap("n", "<C-p>", "<cmd>GFiles<CR>", opts)
+keymap("n", "<C-p>", "<cmd>Files<CR>", opts)
+keymap("n", "<C-A-p>", "<cmd>Files<CR>", opts)
 keymap("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", opts)
-
 
 -- Normal --
 -- Better window navigation
