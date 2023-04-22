@@ -6,9 +6,9 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+keymap("", ",", "<Nop>", opts)
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 -- Modes
 --   normal_mode = "n",
@@ -21,7 +21,8 @@ vim.g.maplocalleader = " "
 -- File navigation
 keymap("n", "<C-p>", "<cmd>Files<CR>", opts)
 keymap("n", "<C-A-p>", "<cmd>Files<CR>", opts)
-keymap("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", opts)
+--keymap("n", "<leader>t", "<cmd>NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>t", "<cmd>Neotree toggle<CR>", opts)
 
 -- Normal --
 -- Better window navigation

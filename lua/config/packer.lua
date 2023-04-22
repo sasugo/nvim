@@ -21,13 +21,13 @@ return require('packer').startup(function(use)
     -- optional for icon support
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
-    --tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
+  --use {
+  --  'nvim-tree/nvim-tree.lua',
+  --  requires = {
+  --    'nvim-tree/nvim-web-devicons', -- optional, for file icons
+  --  },
+  --  --tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  --}
 
   -- cmp pluggins
   --use 'folke/tokyonight.nvim'
@@ -53,12 +53,27 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
 
-  --debuging php
+  --debuging
   use 'mfussenegger/nvim-dap'
+
+  --auto-pair
+  use 'windwp/nvim-autopairs'
 
   -- Colorschemes
   -- use 'ellisonleao/gruvbox.nvim'
   -- use "rebelot/kanagawa.nvim"
   use {"catppuccin/nvim", as = "catppuccin"}
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'} use 'norcalli/nvim-colorizer.lua'
+
+
+  vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
  end)
