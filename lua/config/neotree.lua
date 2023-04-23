@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   require ("neo-tree").setup({
     window = {
-      position = "float",
+      auto_expand_width = true,
       mappings = {
         ["o"]={
           "toggle_node",
@@ -12,6 +12,7 @@ function M.setup()
       }
     },
     filesystem = {
+      bind_to_cwd = true,
       follow_current_file = true,
       hijack_netrw_behavior = "open_current",
       filtered_items={
@@ -21,7 +22,7 @@ function M.setup()
       }
     },
     reveal = true,
-    close_if_last_window = false,
+    close_if_last_window = true,
     source_selector = {
       winbar = true,
       statusline = true

@@ -1,5 +1,4 @@
 vim.opt.guicursor = ""
-vim.opt.bg = "light"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
