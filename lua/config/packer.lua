@@ -61,7 +61,7 @@ return require('packer').startup(function(use)
 
   -- Colorschemes
   -- use 'ellisonleao/gruvbox.nvim'
-  -- use "rebelot/kanagawa.nvim"
+  use "rebelot/kanagawa.nvim"
   use {"catppuccin/nvim", as = "catppuccin"}
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'} use 'norcalli/nvim-colorizer.lua'
 
