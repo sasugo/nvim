@@ -36,7 +36,9 @@ local prettier = require("prettier")
 prettier.setup({
   ["null_ls"] = {
     condition = function()
-      return prettier.config_exists()
+      return prettier.config_exists({
+        check_package_json = true
+      })
     end,
     runtime_condition = function(params)
       -- return false to skip running prettier

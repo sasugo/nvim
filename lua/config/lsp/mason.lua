@@ -37,6 +37,13 @@ for _, server in pairs(servers) do
 	opts = {
 		on_attach = require("config.lsp.handlers").on_attach,
 		capabilities = require("config.lsp.handlers").capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = {'vim'}
+            }
+          }
+        }
 	}
 
 	server = vim.split(server, "@")[1]

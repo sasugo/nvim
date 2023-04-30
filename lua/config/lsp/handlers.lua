@@ -1,4 +1,5 @@
 local M = {}
+local vim = vim
 
 -- TODO: backfill this to template
 M.setup = function()
