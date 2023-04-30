@@ -1,19 +1,24 @@
-vim.opt.guicursor = ""
-vim.opt.nu = true
-vim.opt.relativenumber = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.title = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.termguicolors = true
+local vim = vim
+local opt = vim.opt
 
-vim.opt.smartindent = true
-vim.opt.cindent = true
-vim.opt.wrap = false
+opt.guicursor = ""
+opt.nu = true
+opt.relativenumber = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.hlsearch = false
+opt.incsearch = true
+opt.title = true
+opt.clipboard = "unnamedplus"
+opt.termguicolors = true
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+opt.smartindent = true
+opt.cindent = true
+opt.wrap = false
 
 vim.g.mapleader = " "
 
