@@ -6,7 +6,24 @@ local async = event == "BufWritePost"
 
 null_ls.setup({
   sources = {
-    null_ls.builtins.formatting.prettier
+    null_ls.builtins.formatting.prettier.with({
+      filetypes = {
+        "css",
+        "graphql",
+        "html",
+        "php",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "less",
+        "markdown",
+        "scss",
+        "typescript",
+        "typescriptreact",
+        "yaml",
+        "lua"
+      }
+    })
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
@@ -39,9 +56,10 @@ local prettier = require("prettier")
 prettier.setup({
   ["null_ls"] = {
     condition = function()
-      return prettier.config_exists({
-        check_package_json = true
-      })
+      return prettier.config_exists(
+      {check_package_json = true}
+      )
+
     end,
     runtime_condition = function(params)
       -- return false to skip running prettier
@@ -72,5 +90,6 @@ prettier.setup({
     "typescript",
     "typescriptreact",
     "yaml",
+    "lua"
   },
 })
