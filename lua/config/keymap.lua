@@ -86,7 +86,27 @@ keymap('t', "<A-F>", "<ESC>F", term_opts)
 
 --Error highlighting
 keymap("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", term_opts)
-keymap("n", "<leader>d[","<cmd>lua vim.diagnostic.goto_prev()<CR>", term_opts)
-keymap("n", "<leader>d]","<cmd>lua vim.diagnostic.goto_next()<CR>", term_opts)
-keymap("n", "<leader>dd","<cmd>lua vim.diagnostic.setloclist()<CR>", term_opts)
+keymap("n", "<leader>d[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", term_opts)
+keymap("n", "<leader>d]", "<cmd>lua vim.diagnostic.goto_next()<CR>", term_opts)
+keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.setloclist()<CR>", term_opts)
 
+
+--Dap debugging
+keymap("n", "<leader>b", "<cmd>lua require('dap').toggle_breakpoint() <CR>", term_opts)
+keymap("n", "<leader>B", "<cmd>lua require('dap').set_breakpoint() <CR>", term_opts)
+keymap("n", "<leader>lp", "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) <CR>",
+  term_opts)
+keymap("n", "<leader>dr", "<cmd>lua require('dap').repl.open() <CR>", term_opts)
+keymap("n", "<leader>dl", "<cmd>lua require('dap').run_last() <CR>", term_opts)
+keymap("n", "<leader>dh", "<cmd>lua require('dap.ui.widgets').hover() <CR>", term_opts)
+keymap("v", "<leader>dh", "<cmd>lua require('dap.ui.widgets').hover() <CR>", term_opts)
+keymap("n", "<leader>dp", "<cmd>lua require('dap.ui.widgets').preview() <CR>", term_opts)
+keymap("v", "<leader>dp", "<cmd>lua require('dap.ui.widgets').preview() <CR>", term_opts)
+keymap("n", "<leader>df", "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames) <CR>",
+  term_opts)
+keymap("v", "<leader>df", "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames) <CR>",
+  term_opts)
+keymap("n", "<F5>", "<cmd>lua require('dap').continue() <CR>", term_opts)
+keymap("n", "<F10>", "<cmd>lua require('dap').step_over() <CR>", term_opts)
+keymap("n", "<F11>", "<cmd>lua require('dap').step_into() <CR>", term_opts)
+keymap("n", "<F12>", "<cmd>lua require('dap').step_out() <CR>", term_opts)
