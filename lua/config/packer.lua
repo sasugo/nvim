@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use "savq/melange"
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/popup.nvim"   -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {
     'nvim-lualine/lualine.nvim',
@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
 
   -- Tree navigation
   use { 'junegunn/fzf', run = ":call fzf#install()" }
-  use {'junegunn/fzf.vim'}
+  use { 'junegunn/fzf.vim' }
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
     requires = { 'kyazdani42/nvim-web-devicons' }
@@ -41,12 +41,12 @@ return require('packer').startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
 
   -- snippets
-  use "L3MON4D3/Luasnip" -- snippet engine
+  use "L3MON4D3/Luasnip"             -- snippet engine
   use "rafamadriz/friendly-snippets" -- bunch of snippets
 
-  	-- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/mason.nvim" -- simple to use language server installer
+  -- LSP
+  use "neovim/nvim-lspconfig"             -- enable LSP
+  use "williamboman/mason.nvim"           -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
 
   -- Styling code
@@ -62,13 +62,19 @@ return require('packer').startup(function(use)
   -- Colorschemes
   -- use 'ellisonleao/gruvbox.nvim'
   use "rebelot/kanagawa.nvim"
-  use {"catppuccin/nvim", as = "catppuccin"}
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'} use 'norcalli/nvim-colorizer.lua'
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
+  use 'norcalli/nvim-colorizer.lua'
+
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
 
 
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
   use {
-  "nvim-neo-tree/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     requires = {
       "nvim-lua/plenary.nvim",
@@ -76,4 +82,4 @@ return require('packer').startup(function(use)
       "MunifTanjim/nui.nvim",
     }
   }
- end)
+end)

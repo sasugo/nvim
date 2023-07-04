@@ -5,9 +5,9 @@ local vim = vim
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignWarn",  text = "" },
+    { name = "DiagnosticSignHint",  text = "" },
+    { name = "DiagnosticSignInfo",  text = "" },
   }
 
   for _, sign in ipairs(signs) do
@@ -17,9 +17,9 @@ M.setup = function()
   local config = {
     -- disable virtual text
     virtual_text = {
-    -- source = "always",  -- Or "if_many"
-    prefix = '●', -- Could be '■', '▎', 'x'
-  },
+      -- source = "always",  -- Or "if_many"
+      prefix = '●', -- Could be '■', '▎', 'x'
+    },
     -- show signs
     signs = {
       active = signs,
@@ -90,6 +90,10 @@ M.on_attach = function(client, bufnr)
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
+  if client.server_capabilities.documentSymbolProvider then
+    local navic = require "nvim-navic"
+    navic.attach(client, bufnr)
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
