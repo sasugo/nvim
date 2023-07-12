@@ -11,26 +11,14 @@ return require('packer').startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'kyazdani42/nvim-web-devicons' }
   }
 
   -- Tree navigation
   use { 'junegunn/fzf', run = ":call fzf#install()" }
   use { 'junegunn/fzf.vim' }
-  use { 'ibhagwan/fzf-lua',
-    -- optional for icon support
-    requires = { 'kyazdani42/nvim-web-devicons' }
-  }
-  --use {
-  --  'nvim-tree/nvim-tree.lua',
-  --  requires = {
-  --    'nvim-tree/nvim-web-devicons', -- optional, for file icons
-  --  },
-  --  --tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  --}
+  use { 'ibhagwan/fzf-lua' }
 
-  -- cmp pluggins
-  --use 'folke/tokyonight.nvim'
   use 'hrsh7th/nvim-cmp'
   use 'robertmeta/nofrils'
   use "hrsh7th/cmp-buffer"
@@ -71,8 +59,6 @@ return require('packer').startup(function(use)
     requires = "neovim/nvim-lspconfig"
   }
 
-
-  vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
