@@ -111,3 +111,6 @@ keymap("n", "<F5>", "<cmd>lua require('dap').continue() <CR>", term_opts)
 keymap("n", "<F10>", "<cmd>lua require('dap').step_over() <CR>", term_opts)
 keymap("n", "<F11>", "<cmd>lua require('dap').step_into() <CR>", term_opts)
 keymap("n", "<F12>", "<cmd>lua require('dap').step_out() <CR>", term_opts)
+
+-- Aerial
+keymap("n", "<leader>a", "<cmd>AerialToggle!<CR>", term_opts)

@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
     requires = "neovim/nvim-lspconfig"
   }
 
+  -- Neotree
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -67,5 +68,10 @@ return require('packer').startup(function(use)
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
+  }
+
+  -- Aerial
+  use {
+    'stevearc/aerial.nvim',
   }
 end)
