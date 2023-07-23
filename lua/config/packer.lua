@@ -74,4 +74,12 @@ return require('packer').startup(function(use)
   use {
     'stevearc/aerial.nvim',
   }
+
+  -- Fine Cmdline
+  use {
+    'VonHeikemen/fine-cmdline.nvim',
+    requires = {
+      { 'MunifTanjim/nui.nvim' }
+    }
+  }
 end)

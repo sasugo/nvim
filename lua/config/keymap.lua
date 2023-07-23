@@ -114,3 +114,6 @@ keymap("n", "<F12>", "<cmd>lua require('dap').step_out() <CR>", term_opts)
 
 -- Aerial
 keymap("n", "<leader>a", "<cmd>AerialToggle!<CR>", term_opts)
+
+-- Fine cmdline
+keymap("n", ":", "<cmd>FineCmdline<CR>", term_opts)
