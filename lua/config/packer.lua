@@ -37,6 +37,8 @@ return require('packer').startup(function(use)
   use "williamboman/mason.nvim"           -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
 
+  use "onsails/lspkind.nvim"
+
   -- Styling code
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
