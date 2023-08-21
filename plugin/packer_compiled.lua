@@ -244,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/nvim-navic",
     url = "https://github.com/SmiteshP/nvim-navic"
   },
+  ["nvim-ufo"] = {
+    loaded = true,
+    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/nvim-ufo",
+    url = "https://github.com/kevinhwang91/nvim-ufo"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -268,6 +273,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/prettier.nvim",
     url = "https://github.com/MunifTanjim/prettier.nvim"
+  },
+  ["promise-async"] = {
+    loaded = true,
+    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/promise-async",
+    url = "https://github.com/kevinhwang91/promise-async"
   },
   ["telescope.nvim"] = {
     loaded = true,

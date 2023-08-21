@@ -92,8 +92,10 @@ return require('packer').startup(function(use)
       "neovim/nvim-lspconfig",
       "SmiteshP/nvim-navic",
       "MunifTanjim/nui.nvim",
-      "numToStr/Comment.nvim",          -- Optional
-      "nvim-telescope/telescope.nvim"   -- Optional
+      "numToStr/Comment.nvim",        -- Optional
+      "nvim-telescope/telescope.nvim" -- Optional
     }
   }
+  --UFO
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 end)

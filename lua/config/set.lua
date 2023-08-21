@@ -13,7 +13,10 @@ opt.incsearch = true
 opt.title = true
 opt.clipboard = "unnamedplus"
 opt.termguicolors = true
-opt.foldmethod = "expr"
+opt.foldcolumn = '1'
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 opt.smartindent = true

@@ -82,7 +82,7 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Styling --
--- keymap("n", "<leader>f", "<CMD>Prettier<CR>", opts)
+keymap("n", "<leader>f", "<cmd>Prettier<CR>", opts)
 
 keymap('t', "<A-A>", "<ESC>A", term_opts)
 keymap('t', "<A-B>", "<ESC>B", term_opts)
@@ -116,8 +116,22 @@ keymap("n", "<F10>", "<cmd>lua require('dap').step_over() <CR>", term_opts)
 keymap("n", "<F11>", "<cmd>lua require('dap').step_into() <CR>", term_opts)
 keymap("n", "<F12>", "<cmd>lua require('dap').step_out() <CR>", term_opts)
 
--- Aerial
-keymap("n", "<leader>a", "<cmd>AerialToggle!<CR>", term_opts)
+--Navbuddy
+keymap("n", "<leader>a", "<cmd>Navbuddy<CR>", term_opts)
 
 -- Fine cmdline
 keymap("n", ":", "<cmd>FineCmdline<CR>", term_opts)
+
+--UFO
+keymap("n", "zR", "<cmd>lua require('ufo').openAllFolds()<CR>", term_opts)
+keymap("n", "zM", "<cmd>lua require('ufo').closeAllFolds()<CR>", term_opts)
+keymap("n", "zr", "<cmd>lua require('ufo').openFoldsExceptKinds()<CR>", term_opts)
+keymap("n", "zm", "<cmd>lua require('ufo').closeFoldsWith()<CR>", term_opts)
+vim.keymap.set("n", "zP", function()
+  local winid = require('ufo').peekFoldedLinesUnderCursor()
+  if not winid then
+    -- choose one of coc.nvim and nvim lsp
+    vim.fn.CocActionAsync('definitionHover') -- coc.nvim
+    vim.lsp.buf.hover()
+  end
+end, term_opts)
