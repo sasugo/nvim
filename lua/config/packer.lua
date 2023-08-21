@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
 
   -- Colorschemes
-  -- use 'ellisonleao/gruvbox.nvim'
+  use 'ellisonleao/gruvbox.nvim'
   use "rebelot/kanagawa.nvim"
   use { "catppuccin/nvim", as = "catppuccin" }
   use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
@@ -82,6 +82,18 @@ return require('packer').startup(function(use)
     'VonHeikemen/fine-cmdline.nvim',
     requires = {
       { 'MunifTanjim/nui.nvim' }
+    }
+  }
+
+  --Navbuddy
+  use {
+    "SmiteshP/nvim-navbuddy",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim",
+      "numToStr/Comment.nvim",          -- Optional
+      "nvim-telescope/telescope.nvim"   -- Optional
     }
   }
 end)
