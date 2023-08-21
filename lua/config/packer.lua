@@ -102,4 +102,7 @@ return require('packer').startup(function(use)
 
   --Deepwhite
   use { 'Verf/deepwhite.nvim' }
+
+  --Git Blame
+  use 'f-person/git-blame.nvim'
 end)
