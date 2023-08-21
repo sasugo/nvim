@@ -96,6 +96,10 @@ return require('packer').startup(function(use)
       "nvim-telescope/telescope.nvim" -- Optional
     }
   }
+
   --UFO
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+
+  --Deepwhite
+  use { 'Verf/deepwhite.nvim' }
 end)

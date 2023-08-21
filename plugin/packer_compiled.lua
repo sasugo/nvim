@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["deepwhite.nvim"] = {
+    loaded = true,
+    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/deepwhite.nvim",
+    url = "https://github.com/Verf/deepwhite.nvim"
+  },
   ["fine-cmdline.nvim"] = {
     loaded = true,
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/fine-cmdline.nvim",
