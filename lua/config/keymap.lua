@@ -135,3 +135,9 @@ vim.keymap.set("n", "zP", function()
     vim.lsp.buf.hover()
   end
 end, term_opts)
+
+
+--Emoji
+keymap("n", "<leader><leader>i", "<cmd>IconPickerNormal<cr>", term_opts)
+keymap("n", "<leader><leader>y", "<cmd>IconPickerYank<cr>", term_opts)
+keymap("i", "<C-i>", "<cmd>IconPickerInsert<cr>", term_opts)
