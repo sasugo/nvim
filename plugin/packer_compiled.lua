@@ -254,11 +254,6 @@ _G.packer_plugins = {
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-material-icon"] = {
-    loaded = true,
-    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/nvim-material-icon",
-    url = "https://github.com/DaikyXendo/nvim-material-icon"
-  },
   ["nvim-navbuddy"] = {
     loaded = true,
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/nvim-navbuddy",
