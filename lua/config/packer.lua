@@ -105,4 +105,8 @@ return require('packer').startup(function(use)
 
   --Git Blame
   use 'f-person/git-blame.nvim'
+
+  --Emoji support
+  use "stevearc/dressing.nvim"
+  use "ziontee113/icon-picker.nvim"
 end)

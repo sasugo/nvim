@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/deepwhite.nvim",
     url = "https://github.com/Verf/deepwhite.nvim"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
   ["fine-cmdline.nvim"] = {
     loaded = true,
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/fine-cmdline.nvim",
@@ -168,6 +173,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
+  ["icon-picker.nvim"] = {
+    loaded = true,
+    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/icon-picker.nvim",
+    url = "https://github.com/ziontee113/icon-picker.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
