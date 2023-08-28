@@ -109,4 +109,7 @@ return require('packer').startup(function(use)
   --Emoji support
   use "stevearc/dressing.nvim"
   use "ziontee113/icon-picker.nvim"
+
+  --Python debugger
+  use 'mfussenegger/nvim-dap-python'
 end)
