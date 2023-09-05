@@ -120,7 +120,7 @@ keymap("n", "<F12>", "<cmd>lua require('dap').step_out() <CR>", term_opts)
 keymap("n", "<leader>a", "<cmd>Navbuddy<CR>", term_opts)
 
 -- Fine cmdline
-keymap("n", ":", "<cmd>FineCmdline<CR>", term_opts)
+keymap("n", "<CR>", "<cmd>FineCmdline<CR>", term_opts)
 
 --UFO
 keymap("n", "zR", "<cmd>lua require('ufo').openAllFolds()<CR>", term_opts)
