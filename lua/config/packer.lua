@@ -112,4 +112,7 @@ return require('packer').startup(function(use)
 
   --Python debugger
   use 'mfussenegger/nvim-dap-python'
+
+  --term
+  use { "akinsho/toggleterm.nvim", tag = '*' }
 end)
