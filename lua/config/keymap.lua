@@ -111,10 +111,10 @@ keymap("n", "<leader>df", "<cmd>lua require('dap.ui.widgets').centered_float(req
   term_opts)
 keymap("v", "<leader>df", "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames) <CR>",
   term_opts)
-keymap("n", "<C-F5>", "<cmd>lua require('dap').continue() <CR>", term_opts)
-keymap("n", "<C-F10>", "<cmd>lua require('dap').step_over() <CR>", term_opts)
-keymap("n", "<C-F11>", "<cmd>lua require('dap').step_into() <CR>", term_opts)
-keymap("n", "<C-F12>", "<cmd>lua require('dap').step_out() <CR>", term_opts)
+keymap("n", "<leader>d<F5>", "<cmd>lua require('dap').continue() <CR>", term_opts)
+keymap("n", "<leader>d<F10>", "<cmd>lua require('dap').step_over() <CR>", term_opts)
+keymap("n", "<leader>d<F11>", "<cmd>lua require('dap').step_into() <CR>", term_opts)
+keymap("n", "<leader>d<F12>", "<cmd>lua require('dap').step_out() <CR>", term_opts)
 
 --Navbuddy
 keymap("n", "<leader>a", "<cmd>Navbuddy<CR>", term_opts)
