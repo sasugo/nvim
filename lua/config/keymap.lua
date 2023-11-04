@@ -141,3 +141,6 @@ end, term_opts)
 keymap("n", "<leader><leader>i", "<cmd>IconPickerNormal emoji nerd_font_v3 alt_font symbols<cr>", term_opts)
 keymap("n", "<leader><leader>y", "<cmd>IconPickerYank emoji nerd_font_v3 alt_font symbols<cr>", term_opts)
 keymap("i", "<C-i>", "<cmd>IconPickerInsert emoji nerd_font_v3 alt_font symbols<cr>", term_opts)
+
+--LazyGit
+keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", term_opts)
