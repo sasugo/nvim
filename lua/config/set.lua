@@ -1,7 +1,6 @@
 local vim = vim
 local opt = vim.opt
 
-opt.shell = "/bin/bash"
 opt.guicursor = ""
 opt.nu = true
 opt.relativenumber = true
@@ -24,7 +23,7 @@ opt.smartindent = true
 opt.cindent = true
 opt.wrap = false
 
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1

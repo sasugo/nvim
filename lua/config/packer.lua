@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
   -- Tree navigation
   use {
     'junegunn/fzf.vim',
-    requires = { { 'junegunn/fzf', run = ':call fzf#install()' }, { 'ibhagwan/fzf-lua' } }
+    requires = { { 'junegunn/fzf', dir = "./fzf", run = ':call fzf#install()' }, { 'ibhagwan/fzf-lua' } }
   }
 
   use 'hrsh7th/nvim-cmp'
@@ -125,4 +125,7 @@ return require('packer').startup(function(use)
       "nvim-lua/plenary.nvim",
     },
   })
+
+  -- Github theme
+  use({ 'projekt0n/github-nvim-theme' })
 end)

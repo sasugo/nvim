@@ -164,6 +164,16 @@ _G.packer_plugins = {
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
+  ["git-blame.nvim"] = {
+    loaded = true,
+    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
+    url = "https://github.com/f-person/git-blame.nvim"
+  },
+  ["github-nvim-theme"] = {
+    loaded = true,
+    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
+    url = "https://github.com/projekt0n/github-nvim-theme"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
