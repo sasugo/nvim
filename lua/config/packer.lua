@@ -15,9 +15,10 @@ return require('packer').startup(function(use)
   }
 
   -- Tree navigation
-  use { 'junegunn/fzf', run = ":call fzf#install()" }
-  use { 'junegunn/fzf.vim' }
-  use { 'ibhagwan/fzf-lua' }
+  use {
+    'junegunn/fzf.vim',
+    requires = { { 'junegunn/fzf', run = ':call fzf#install()' }, { 'ibhagwan/fzf-lua' } }
+  }
 
   use 'hrsh7th/nvim-cmp'
   use 'robertmeta/nofrils'
