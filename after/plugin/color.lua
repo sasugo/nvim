@@ -2,4 +2,4 @@
 --vim.cmd([[colorscheme kanagawa]])
 --vim.cmd([[colorscheme gruvbox]])
 --vim.cmd([[colorscheme deepwhite]])
-vim.cmd([[colorscheme github_light]])
+vim.cmd([[colorscheme github_dark]])
