@@ -125,4 +125,10 @@ return require('packer').startup(function(use)
 
   -- Github theme
   use({ 'projekt0n/github-nvim-theme' })
+
+  -- Hardtime
+  use({ "m4xshen/hardtime.nvim", requires = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" } })
+
+  -- Other
+  use "rgroli/other.nvim"
 end)
