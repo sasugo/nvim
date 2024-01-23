@@ -103,18 +103,14 @@ keymap("n", "<leader>lp", "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.
   term_opts)
 keymap("n", "<leader>dr", "<cmd>lua require('dap').repl.open() <CR>", term_opts)
 keymap("n", "<leader>dl", "<cmd>lua require('dap').run_last() <CR>", term_opts)
-keymap("n", "<leader>dh", "<cmd>lua require('dap.ui.widgets').hover() <CR>", term_opts)
 keymap("v", "<leader>dh", "<cmd>lua require('dap.ui.widgets').hover() <CR>", term_opts)
 keymap("n", "<leader>dp", "<cmd>lua require('dap.ui.widgets').preview() <CR>", term_opts)
-keymap("v", "<leader>dp", "<cmd>lua require('dap.ui.widgets').preview() <CR>", term_opts)
 keymap("n", "<leader>df", "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames) <CR>",
   term_opts)
-keymap("v", "<leader>df", "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames) <CR>",
-  term_opts)
-keymap("n", "<leader>d<F5>", "<cmd>lua require('dap').continue() <CR>", term_opts)
-keymap("n", "<leader>d<F10>", "<cmd>lua require('dap').step_over() <CR>", term_opts)
-keymap("n", "<leader>d<F11>", "<cmd>lua require('dap').step_into() <CR>", term_opts)
-keymap("n", "<leader>d<F12>", "<cmd>lua require('dap').step_out() <CR>", term_opts)
+keymap("n", "<leader>dco", "<cmd>lua require('dap').continue() <CR>", term_opts)
+keymap("n", "<leader>dso", "<cmd>lua require('dap').step_over() <CR>", term_opts)
+keymap("n", "<leader>dsi", "<cmd>lua require('dap').step_into() <CR>", term_opts)
+keymap("n", "<leader>dsu", "<cmd>lua require('dap').step_out() <CR>", term_opts)
 
 --Navbuddy
 keymap("n", "<leader>a", "<cmd>Navbuddy<CR>", term_opts)

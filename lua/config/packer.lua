@@ -46,6 +46,7 @@ return require('packer').startup(function(use)
 
   --debuging
   use 'mfussenegger/nvim-dap'
+  use 'mfussenegger/nvim-dap-python'
 
   --auto-pair
   use 'windwp/nvim-autopairs'
@@ -107,9 +108,6 @@ return require('packer').startup(function(use)
   --Emoji support
   use "stevearc/dressing.nvim"
   use "ziontee113/icon-picker.nvim"
-
-  --Python debugger
-  use 'mfussenegger/nvim-dap-python'
 
   --term
   use { "akinsho/toggleterm.nvim", tag = '*' }

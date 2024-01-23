@@ -6,7 +6,8 @@ local servers = {
   "angularls",
   "cssls",
   "cssmodules_ls",
-  "unocss"
+  "unocss",
+  "jedi_language_server"
 }
 
 local settings = {
