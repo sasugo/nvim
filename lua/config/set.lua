@@ -28,5 +28,10 @@ vim.g.mapleader = ","
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
---opt.background = "white"
+vim.g.rnvimr_enable_ex = 1
+vim.g.rnvimr_enable_picker = 1
+vim.g.rnvimr_edit_cmd = 'drop'
+vim.g.rnvimr_draw_border = 1
+vim.g.rnvimr_enable_bw = 1
+vim.g.rnvimr_shadow_winblend = 70
+vim.g.rnvimr_ranger_cmd = { 'ranger', '--cmd=set draw_borders both' }

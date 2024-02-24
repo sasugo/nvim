@@ -22,7 +22,9 @@ vim.g.maplocalleader = ","
 keymap("n", "<C-p>", "<cmd>Files<CR>", opts)
 keymap("n", "<leader><C-p>", "<cmd>Buffers<CR>", opts)
 keymap("n", "<leader>p", "<cmd>GFiles<CR>", opts)
-keymap("n", "<leader>n", "<cmd>Neotree toggle<CR>", opts)
+keymap("n", "<leader>n", "<cmd>RnvimrToggle<CR>", opts)
+keymap("t", "<leader>n", "<C-\\><C-n><cmd>RnvimrToggle<CR>", opts)
+keymap("t", "<leader>i", "<C-\\><C-n><cmd>RnvimrResize<CR>", opts)
 keymap("n", "<leader>t", "<cmd>Files %:p:h<CR>", opts)
 
 -- Normal --

@@ -20,6 +20,8 @@ return require('packer').startup(function(use)
     requires = { { 'junegunn/fzf', dir = "./fzf", run = ':call fzf#install()' }, { 'ibhagwan/fzf-lua' } }
   }
 
+  use 'kevinhwang91/rnvimr'
+
   use 'hrsh7th/nvim-cmp'
   use 'robertmeta/nofrils'
   use "hrsh7th/cmp-buffer"
