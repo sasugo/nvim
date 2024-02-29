@@ -14,6 +14,9 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
 
+  --Latex
+  use 'lervag/vimtex'
+
   -- Tree navigation
   use {
     'junegunn/fzf.vim',
