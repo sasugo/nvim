@@ -8,9 +8,17 @@ function M.setup()
   table.insert(require("dap").configurations.python, {
     type = "python",
     request = "launch",
-    name = "Module",
+    name = "Module App",
     console = "integratedTerminal",
     module = "app", -- edit this to be your app's main module
+    cwd = "${workspaceFolder}",
+  })
+  table.insert(require("dap").configurations.python, {
+    type = "python",
+    request = "launch",
+    name = "Module main",
+    console = "integratedTerminal",
+    module = "main", -- edit this to be your app's main module
     cwd = "${workspaceFolder}",
   })
 end
