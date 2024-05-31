@@ -7,7 +7,8 @@ local servers = {
   "cssls",
   "cssmodules_ls",
   "unocss",
-  "jedi_language_server"
+  "jedi_language_server",
+  "omnisharp"
 }
 
 local settings = {
