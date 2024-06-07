@@ -8,7 +8,7 @@ function M.setup()
       border = "single", -- "rounded", "double", "solid", "none"
       -- or an array with eight chars building up the border in a clockwise fashion
       -- starting with the top-left corner. eg: { "╔", "═" ,"╗", "║", "╝", "═", "╚", "║" }.
-      size = "60%",     -- Or table format example: { height = "40%", width = "100%"}
+      size = "80%",     -- Or table format example: { height = "40%", width = "100%"}
       position = "50%", -- Or table format example: { row = "100%", col = "0%"}
       scrolloff = nil,  -- scrolloff value within navbuddy window
       sections = {
