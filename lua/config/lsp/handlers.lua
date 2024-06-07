@@ -84,6 +84,8 @@ local function lsp_keymaps(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
+local navbuddy = require('nvim-navbuddy')
+
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.server_capabilities.documentFormattingProvider = false
@@ -93,6 +95,7 @@ M.on_attach = function(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     local navic = require "nvim-navic"
     navic.attach(client, bufnr)
+    navbuddy.attach(client,bufnr)
   end
 end
 

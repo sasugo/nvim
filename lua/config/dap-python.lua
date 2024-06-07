@@ -1,3 +1,4 @@
+local dap = require("dap")
 local M = {}
 function M.setup()
   require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
@@ -5,7 +6,7 @@ function M.setup()
     return '/home/gonzalo/dev/bpk-training/training-service/venv/bin/python'
   end
 
-  table.insert(require("dap").configurations.python, {
+  table.insert(dap.configurations.python, {
     type = "python",
     request = "launch",
     name = "Module App",
@@ -13,7 +14,7 @@ function M.setup()
     module = "app", -- edit this to be your app's main module
     cwd = "${workspaceFolder}",
   })
-  table.insert(require("dap").configurations.python, {
+  table.insert(dap.configurations.python, {
     type = "python",
     request = "launch",
     name = "Module main",

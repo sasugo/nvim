@@ -56,6 +56,7 @@ for _, server in pairs(servers) do
   if require_ok then
     opts = vim.tbl_deep_extend("force", conf_opts, opts)
   end
-
   lspconfig[server].setup(opts)
 end
+
+
