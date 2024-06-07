@@ -1,4 +1,11 @@
 local opts = { noremap = true, silent = true }
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
 
 local term_opts = { silent = true }
 
@@ -10,13 +17,6 @@ keymap("", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
 
 -- File navigation
 keymap("n", "<C-p>", "<cmd>Files<CR>", opts)
@@ -142,3 +142,10 @@ keymap("i", "<C-i>", "<cmd>IconPickerInsert emoji nerd_font_v3 alt_font symbols<
 
 --LazyGit
 keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", term_opts)
+
+-- Other keymapping
+keymap("n", "<leader>ll", "<cmd>:Other<cr>", term_opts)
+keymap("n", "<leader>lt", "<cmd>:Other test<cr>", term_opts)
+keymap("n", "<leader>ls", "<cmd>:Other scss<cr>", term_opts)
+keymap("n", "<leader>lh", "<cmd>:Other html<cr>", term_opts)
+keymap("n", "<leader>lc", "<cmd>:Other component<cr>", term_opts)
