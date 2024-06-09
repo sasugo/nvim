@@ -19,7 +19,8 @@ null_ls.setup({
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,
     diagnostics.flake8,
-    formatting.phpcbf
+    formatting.phpcbf,
+    formatting.csharpier
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
