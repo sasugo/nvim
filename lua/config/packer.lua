@@ -143,4 +143,7 @@ return require('packer').startup(function(use)
     -- In Vim, compat mode is turned on as Lush only works in Neovim.
     requires = "rktjmp/lush.nvim"
   }
+
+  -- oxocarbon
+  use { 'nyoom-engineering/oxocarbon.nvim' }
 end)

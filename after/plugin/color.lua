@@ -6,5 +6,6 @@
 --vim.cmd([[colorscheme github_dark_dimmed]])
 --vim.cmd([[colorscheme github_dark_high_contrast]])
 --vim.cmd([[colorscheme github_light_high_contrast]])
-vim.cmd([[colorscheme zenbones]])
+--vim.cmd([[colorscheme zenbones]])
+vim.cmd([[colorscheme oxocarbon]])
 vim.opt.background='light'

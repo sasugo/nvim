@@ -299,6 +299,11 @@ _G.packer_plugins = {
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/other.nvim",
     url = "https://github.com/rgroli/other.nvim"
   },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/packer.nvim",
