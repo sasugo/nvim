@@ -1,5 +1,5 @@
 --vim.cmd("colorscheme catppuccin")
---vim.cmd([[colorscheme kanagawa]])
+vim.cmd([[colorscheme kanagawa]])
 --vim.cmd([[colorscheme gruvbox]])
 --vim.cmd([[colorscheme deepwhite]])
 --vim.cmd([[colorscheme github_dark]])
@@ -7,5 +7,5 @@
 --vim.cmd([[colorscheme github_dark_high_contrast]])
 --vim.cmd([[colorscheme github_light_high_contrast]])
 --vim.cmd([[colorscheme zenbones]])
-vim.cmd([[colorscheme oxocarbon]])
-vim.opt.background='light'
+--vim.cmd([[colorscheme oxocarbon]])
+vim.opt.background = 'dark'
