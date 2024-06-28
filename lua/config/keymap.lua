@@ -144,7 +144,7 @@ keymap("i", "<C-i>", "<cmd>IconPickerInsert emoji nerd_font_v3 alt_font symbols<
 keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", term_opts)
 
 -- Other keymapping
-keymap("n", "<leader>ll", "<cmd>:Other<cr>", term_opts)
+keymap("n", "<leader>lz", "<cmd>:Other<cr>", term_opts)
 keymap("n", "<leader>lt", "<cmd>:Other test<cr>", term_opts)
 keymap("n", "<leader>ls", "<cmd>:Other scss<cr>", term_opts)
 keymap("n", "<leader>lh", "<cmd>:Other html<cr>", term_opts)

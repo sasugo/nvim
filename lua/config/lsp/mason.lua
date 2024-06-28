@@ -8,7 +8,8 @@ local servers = {
   "cssmodules_ls",
   "unocss",
   "jedi_language_server",
-  "omnisharp"
+  "omnisharp",
+  "texlab"
 }
 
 local settings = {
@@ -58,5 +59,3 @@ for _, server in pairs(servers) do
   end
   lspconfig[server].setup(opts)
 end
-
-
