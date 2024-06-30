@@ -5,9 +5,9 @@ local vim = vim
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn",  text = "" },
-    { name = "DiagnosticSignHint",  text = "" },
-    { name = "DiagnosticSignInfo",  text = "" },
+    { name = "DiagnosticSignWarn", text = "" },
+    { name = "DiagnosticSignHint", text = "" },
+    { name = "DiagnosticSignInfo", text = "" },
   }
 
   for _, sign in ipairs(signs) do
@@ -95,7 +95,7 @@ M.on_attach = function(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     local navic = require "nvim-navic"
     navic.attach(client, bufnr)
-    navbuddy.attach(client,bufnr)
+    navbuddy.attach(client, bufnr)
   end
 end
 
@@ -104,6 +104,8 @@ capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true
 }
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then

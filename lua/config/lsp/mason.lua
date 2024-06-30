@@ -1,14 +1,8 @@
 local servers = {
   "lua_ls",
-  "tsserver",
-  "phpactor",
   "html",
-  "angularls",
   "cssls",
   "cssmodules_ls",
-  "unocss",
-  "jedi_language_server",
-  "omnisharp",
   "texlab"
 }
 

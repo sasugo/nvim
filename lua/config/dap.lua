@@ -11,6 +11,7 @@ dap.configurations.php = {
     request = 'launch',
     name = 'Listen for xdebug',
     port = '9003',
+    host = '172.18.0.2'
   },
 }
 
