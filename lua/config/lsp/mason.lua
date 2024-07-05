@@ -1,7 +1,7 @@
 local servers = {
   "lua_ls",
   "tsserver",
-  "phpactor",
+  "intelephense",
   "html",
   "angularls",
   "cssls",
