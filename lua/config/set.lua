@@ -18,6 +18,7 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
 opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.directory = "/tmp"
 
 opt.smartindent = true
 opt.cindent = true
