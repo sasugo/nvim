@@ -21,7 +21,6 @@ vim.g.maplocalleader = ","
 keymap("n", "<leader><leader>p", "<cmd>Files<CR>", opts)
 keymap("n", "<leader><C-p>", "<cmd>Buffers<CR>", opts)
 keymap("n", "<leader>p", "<cmd>GFiles<CR>", opts)
-keymap("n", "<leader>n", "<cmd>Oil --float<CR>", opts)
 keymap("n", "<leader>t", "<cmd>Files %:p:h<CR>", opts)
 
 -- Normal --
@@ -152,3 +151,6 @@ keymap("n", "<leader>lt", "<cmd>:Other test<cr>", term_opts)
 keymap("n", "<leader>ls", "<cmd>:Other scss<cr>", term_opts)
 keymap("n", "<leader>lh", "<cmd>:Other html<cr>", term_opts)
 keymap("n", "<leader>lc", "<cmd>:Other component<cr>", term_opts)
+
+-- Oil
+keymap("n", "<leader>n", "<cmd>Oil --float<CR>", opts)
