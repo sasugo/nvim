@@ -10,10 +10,11 @@ opt.expandtab = true
 opt.shiftwidth = 2
 opt.hlsearch = false
 opt.incsearch = true
+opt.inccommand = "split"
 opt.title = true
 opt.clipboard = "unnamedplus"
 opt.termguicolors = true
-opt.foldcolumn = '1'
+opt.foldcolumn = "1"
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
@@ -26,10 +27,9 @@ opt.wrap = false
 
 vim.g.mapleader = ","
 
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- VimLatex
-vim.g.vimtex_view_method = 'zathura'
-vim.g.vimtex_compiler_method = 'latexmk'
+vim.g.vimtex_view_method = "zathura"
+vim.g.vimtex_compiler_method = "latexmk"
