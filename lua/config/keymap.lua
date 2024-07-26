@@ -153,4 +153,7 @@ keymap("n", "<leader>lh", "<cmd>:Other html<cr>", term_opts)
 keymap("n", "<leader>lc", "<cmd>:Other component<cr>", term_opts)
 
 -- Oil
-keymap("n", "<leader>n", "<cmd>Oil --float<CR>", opts)
+keymap("n", "<leader>-", "<cmd>Oil --float<CR>", opts)
+
+--Neo Tree
+keymap("n", "<leader>n", "<cmd>NeoTreeFloatToggle<cr>", opts)
