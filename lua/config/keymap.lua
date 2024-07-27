@@ -17,11 +17,11 @@ keymap("", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
--- File navigation
-keymap("n", "<leader><leader>p", "<cmd>Files<CR>", opts)
-keymap("n", "<leader><C-p>", "<cmd>Buffers<CR>", opts)
-keymap("n", "<leader>p", "<cmd>GFiles<CR>", opts)
-keymap("n", "<leader>t", "<cmd>Files %:p:h<CR>", opts)
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>p', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- Normal --
 -- Better window navigation
@@ -97,20 +97,20 @@ keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.setloclist()<CR>", term_opts)
 keymap("n", "<leader>b", "<cmd>lua require('dap').toggle_breakpoint() <CR>", term_opts)
 keymap("n", "<leader>B", "<cmd>lua require('dap').set_breakpoint() <CR>", term_opts)
 keymap(
-	"n",
-	"<leader>lp",
-	"<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) <CR>",
-	term_opts
+  "n",
+  "<leader>lp",
+  "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) <CR>",
+  term_opts
 )
 keymap("n", "<leader>dr", "<cmd>lua require('dap').repl.open() <CR>", term_opts)
 keymap("n", "<leader>dl", "<cmd>lua require('dap').run_last() <CR>", term_opts)
 keymap("v", "<leader>dh", "<cmd>lua require('dap.ui.widgets').hover() <CR>", term_opts)
 keymap("n", "<leader>dp", "<cmd>lua require('dap.ui.widgets').preview() <CR>", term_opts)
 keymap(
-	"n",
-	"<leader>df",
-	"<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames) <CR>",
-	term_opts
+  "n",
+  "<leader>df",
+  "<cmd>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames) <CR>",
+  term_opts
 )
 keymap("n", "<leader>dco", "<cmd>lua require('dap').continue() <CR>", term_opts)
 keymap("n", "<leader>dso", "<cmd>lua require('dap').step_over() <CR>", term_opts)
@@ -129,12 +129,12 @@ keymap("n", "zM", "<cmd>lua require('ufo').closeAllFolds()<CR>", term_opts)
 keymap("n", "zr", "<cmd>lua require('ufo').openFoldsExceptKinds()<CR>", term_opts)
 keymap("n", "zm", "<cmd>lua require('ufo').closeFoldsWith()<CR>", term_opts)
 vim.keymap.set("n", "zP", function()
-	local winid = require("ufo").peekFoldedLinesUnderCursor()
-	if not winid then
-		-- choose one of coc.nvim and nvim lsp
-		vim.fn.CocActionAsync("definitionHover") -- coc.nvim
-		vim.lsp.buf.hover()
-	end
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    -- choose one of coc.nvim and nvim lsp
+    vim.fn.CocActionAsync("definitionHover") -- coc.nvim
+    vim.lsp.buf.hover()
+  end
 end, term_opts)
 
 --Emoji
@@ -156,4 +156,4 @@ keymap("n", "<leader>lc", "<cmd>:Other component<cr>", term_opts)
 keymap("n", "<leader>-", "<cmd>Oil --float<CR>", opts)
 
 --Neo Tree
-keymap("n", "<leader>n", "<cmd>NeoTreeFloatToggle<cr>", opts)
+keymap("n", "<leader>n", "<cmd>Neotree toggle<cr>", opts)
