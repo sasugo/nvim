@@ -325,6 +325,11 @@ _G.packer_plugins = {
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/rnvimr",
     url = "https://github.com/kevinhwang91/rnvimr"
   },
+  ["telescope-live-grep-args.nvim"] = {
+    loaded = true,
+    path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/telescope-live-grep-args.nvim",
+    url = "https://github.com/nvim-telescope/telescope-live-grep-args.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/gonzalo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
