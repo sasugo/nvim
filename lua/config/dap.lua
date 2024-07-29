@@ -9,8 +9,10 @@ dap.configurations.php = {
   {
     type = 'php',
     request = 'launch',
-    name = 'Listen for xdebug',
+    name = 'Intelges Services - Docker - XDebug',
     port = '9003',
+    pathMappings = {
+      ['/app'] = "${workspaceFolder}", }
   },
 }
 
