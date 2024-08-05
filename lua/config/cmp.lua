@@ -8,6 +8,11 @@ if not snip_status_ok then
 	return
 end
 
+local lspkind_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_ok then
+	return
+end
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -17,7 +22,6 @@ end
 
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-local my_lspkind = require("lspkind")
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -69,7 +73,7 @@ cmp.setup({
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
-		format = my_lspkind.cmp_format({
+		format = lspkind.cmp_format({
 			mode = "symbol_text",
 			maxwidth = 50,
 			ellipsis_char = "...",
