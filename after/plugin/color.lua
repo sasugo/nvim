@@ -3,9 +3,10 @@
 --vim.cmd([[colorscheme gruvbox]])
 --vim.cmd([[colorscheme deepwhite]])
 --vim.cmd([[colorscheme github_dark]])
-vim.cmd([[colorscheme github_dark_dimmed]])
---vim.cmd([[colorscheme github_dark_high_contrast]])
+--vim.cmd([[colorscheme github_dark_dimmed]])
+vim.cmd([[colorscheme github_dark_high_contrast]])
 --vim.cmd([[colorscheme github_light_high_contrast]])
+--vim.cmd([[colorscheme github_light]])
 --vim.cmd([[colorscheme zenbones]])
 --vim.cmd([[colorscheme oxocarbon]])
-vim.opt.background = 'dark'
+vim.opt.background = "dark"

@@ -20,6 +20,7 @@ opt.foldlevelstart = 99
 opt.foldenable = true
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.directory = "/tmp"
+opt.conceallevel = 2
 
 opt.smartindent = true
 opt.cindent = true
@@ -34,12 +35,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.vimtex_view_method = "zathura"
 vim.g.vimtex_compiler_method = "latexmk"
 
-
-vim.fn.sign_define("DiagnosticSignError",
-        {text = " ", texthl = "DiagnosticSignError"})
-      vim.fn.sign_define("DiagnosticSignWarn",
-        {text = " ", texthl = "DiagnosticSignWarn"})
-      vim.fn.sign_define("DiagnosticSignInfo",
-        {text = " ", texthl = "DiagnosticSignInfo"})
-      vim.fn.sign_define("DiagnosticSignHint",
-        {text = "󰌵", texthl = "DiagnosticSignHint"})
+vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
