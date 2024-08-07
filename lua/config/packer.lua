@@ -7,7 +7,7 @@ return require("packer").startup(function(use)
   -- Packer can manage itself
   use("wbthomason/packer.nvim")
   use("savq/melange")
-  use("nvim-lua/popup.nvim")  -- An implementation of the Popup API from vim in Neovim
+  use("nvim-lua/popup.nvim")   -- An implementation of the Popup API from vim in Neovim
   use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
   use({
     "nvim-lualine/lualine.nvim",
@@ -37,12 +37,12 @@ return require("packer").startup(function(use)
   use("hrsh7th/cmp-nvim-lua")
 
   -- snippets
-  use("L3MON4D3/Luasnip")            -- snippet engine
+  use("L3MON4D3/Luasnip")             -- snippet engine
   use("rafamadriz/friendly-snippets") -- bunch of snippets
 
   -- LSP
-  use("neovim/nvim-lspconfig")            -- enable LSP
-  use("williamboman/mason.nvim")          -- simple to use language server installer
+  use("neovim/nvim-lspconfig")             -- enable LSP
+  use("williamboman/mason.nvim")           -- simple to use language server installer
   use("williamboman/mason-lspconfig.nvim") -- simple to use language server installer
 
   use("onsails/lspkind.nvim")
@@ -140,7 +140,7 @@ return require("packer").startup(function(use)
       "neovim/nvim-lspconfig",
       "SmiteshP/nvim-navic",
       "MunifTanjim/nui.nvim",
-      "numToStr/Comment.nvim",      -- Optional
+      "numToStr/Comment.nvim",         -- Optional
       "nvim-telescope/telescope.nvim", -- Optional
     },
   })
@@ -203,7 +203,7 @@ return require("packer").startup(function(use)
   use({
     "MeanderingProgrammer/render-markdown.nvim",
     after = { "nvim-treesitter" },
-    requires = { "nvim-tree/nvim-web-devicons", opt = true },
+    requires = { "nvim-tree/nvim-web-devicons", opt = true }
   })
 
 
@@ -212,10 +212,7 @@ return require("packer").startup(function(use)
     "epwalsh/obsidian.nvim",
     tag = "*", -- recommended, use latest release instead of latest commit
     requires = {
-      -- Required.
       "nvim-lua/plenary.nvim",
-
-      -- see below for full list of optional dependencies 👇
     },
   })
 end)
