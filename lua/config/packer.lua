@@ -215,4 +215,6 @@ return require("packer").startup(function(use)
       "nvim-lua/plenary.nvim",
     },
   })
+
+  use("folke/tokyonight.nvim")
 end)

@@ -1,7 +1,10 @@
 local M = {}
+local bufferline = require("bufferline")
 function M.setup()
-  require("bufferline").setup({
+  bufferline.setup({
     options = {
+      style_preset = bufferline.style_preset.minimal,
+      themable = true,
       separator_style = "thick",
       diagnostics = "nvim_lsp",
       color_icons = true,

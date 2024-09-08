@@ -1,6 +1,6 @@
 local servers = {
   "lua_ls",
-  "tsserver",
+  "ts_ls",
   "intelephense",
   "html",
   "angularls",
