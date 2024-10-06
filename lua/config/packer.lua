@@ -52,8 +52,10 @@ return require("packer").startup(function(use)
 	use("MunifTanjim/prettier.nvim")
 
 	--debuging
-	use("mfussenegger/nvim-dap")
-	use("mfussenegger/nvim-dap-python")
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = { "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", "nvim-neotest/nvim-nio" },
+	})
 
 	--auto-pair
 	use("windwp/nvim-autopairs")
