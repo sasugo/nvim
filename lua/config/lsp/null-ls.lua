@@ -20,7 +20,7 @@ null_ls.setup({
 		formatting.stylua,
 		diagnostics.flake8,
 		diagnostics.eslint_d.with({
-			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "html" },
+			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "html", "spec.ts" },
 		}),
 		formatting.phpcbf,
 		formatting.csharpier,
