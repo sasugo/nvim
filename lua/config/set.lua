@@ -27,8 +27,6 @@ opt.smartindent = true
 opt.cindent = true
 opt.wrap = false
 
-vim.g.mapleader = ","
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
