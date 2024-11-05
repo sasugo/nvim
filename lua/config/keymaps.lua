@@ -64,3 +64,10 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+--Error highlighting
+keymap("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", term_opts)
+keymap("n", "<leader>d[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", term_opts)
+keymap("n", "<leader>d]", "<cmd>lua vim.diagnostic.goto_next()<CR>", term_opts)
+keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.setloclist()<CR>", term_opts)
+
