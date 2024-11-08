@@ -34,6 +34,15 @@ return {
             "html",
             "spec.ts",
           },
+          condition = function(utils)
+            return utils.root_has_file({
+              ".eslintrc.js",
+              ".eslintrc.json",
+              ".eslintrc.cjs",
+              "eslint.config.js",
+              "eslint.config.mjs",
+            })
+          end,
         }),
         formatting.phpcbf,
         formatting.csharpier,
