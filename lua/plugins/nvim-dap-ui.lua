@@ -91,8 +91,18 @@ return {
         },
       },
     })
-    vim.keymap.set("n", "<leader><F3>", dapui.toggle, {})
-    vim.keymap.set("n", "<leader><F1>", dapui.open, {})
+    dap.listeners.before.attach.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.launch.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.event_terminated.dapui_config = function()
+      dapui.close()
+    end
+    dap.listeners.before.event_exited.dapui_config = function()
+      dapui.close()
+    end
     dapui.setup()
   end,
   keys = {
