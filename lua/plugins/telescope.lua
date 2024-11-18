@@ -1,29 +1,34 @@
 return {
-  'nvim-telescope/telescope.nvim', tag = '0.1.8',
-  dependencies = { 
-    'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope-live-grep-args.nvim' 
-   },
+  "nvim-telescope/telescope.nvim",
+  tag = "0.1.8",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-live-grep-args.nvim",
+  },
   config = function()
     local telescope = require("telescope")
     local lga_actions = require("telescope-live-grep-args.actions")
-    
-    telescope.setup {
+
+    telescope.setup({
+      buffers = {
+        sort_lastused = true,
+      },
       defaults = {
         default_ignore_patterns = {
-          "node_modules", "vendor"
-        }
+          "node_modules",
+          "vendor",
+        },
       },
       pickers = {
         find_files = {
-          hidden = true
-        }
+          hidden = true,
+        },
       },
       extensions = {
         live_grep_args = {
           auto_quoting = true, -- enable/disable auto-quoting
           -- define mappings, e.g.
-          mappings = {         -- extend mappings
+          mappings = {    -- extend mappings
             i = {
               ["<C-k>"] = lga_actions.quote_prompt(),
               ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
@@ -34,20 +39,20 @@ return {
           -- theme = "dropdown", -- use dropdown theme
           -- theme = { }, -- use own theme spec
           -- layout_config = { mirror=true }, -- mirror preview pane
-        }
-      }
-    }
-    
+        },
+      },
+    })
+
     -- don't forget to load the extension
     telescope.load_extension("live_grep_args")
 
     -- Keymaps
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+    local builtin = require("telescope.builtin")
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
     --vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
     vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-    vim.keymap.set('x', '<leader>ss', '"zy<Cmd>Telescope live_grep<CR><C-r>z', {})
-  end
+    vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+    vim.keymap.set("x", "<leader>ss", '"zy<Cmd>Telescope live_grep<CR><C-r>z', {})
+  end,
 }
