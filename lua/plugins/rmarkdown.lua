@@ -1,13 +1,11 @@
-local render_markdown_ok, render_markdown = pcall(require, "render-markdown")
-
-if not render_markdown_ok then
-  return
-end
-
-local M = {}
-
-M.setup = function()
-  render_markdown.setup({
+return {
+  "MeanderingProgrammer/render-markdown.nvim",
+  dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  ---@module 'render-markdown'
+  ---@type render.md.UserConfig
+  opts = {
     heading = {
       -- Turn on / off heading icon & background rendering
       enabled = true,
@@ -114,7 +112,5 @@ M.setup = function()
         todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo" },
       },
     },
-  })
-end
-
-return M
+  },
+}
