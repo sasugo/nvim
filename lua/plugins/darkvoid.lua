@@ -70,4 +70,5 @@ return {
     })
     vim.cmd.colorscheme("darkvoid")
   end,
+  enabled = false,
 }

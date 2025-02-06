@@ -43,6 +43,5 @@ return {
       inactive_winbar = {},
       extensions = {},
     })
-    require("darkvoid").setup()
   end,
 }
