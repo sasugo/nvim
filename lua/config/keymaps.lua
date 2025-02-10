@@ -38,8 +38,8 @@ keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
+--keymap("i", "jk", "<ESC>", opts)
+--keymap("i", "kj", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -70,4 +70,3 @@ keymap("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", term_opts)
 keymap("n", "<leader>d[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", term_opts)
 keymap("n", "<leader>d]", "<cmd>lua vim.diagnostic.goto_next()<CR>", term_opts)
 keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.setloclist()<CR>", term_opts)
-
