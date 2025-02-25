@@ -50,14 +50,14 @@ return {
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
           vim.keymap.set("n", "<Leader>f", function()
-            vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+            vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf(), timeout_ms = 10000 })
           end, { buffer = bufnr, desc = "[lsp] format" })
           vim.api.nvim_create_autocmd("BufWritePre", {
             group = augroup,
             buffer = bufnr,
             desc = "Format the buffer before saving it",
             callback = function()
-              vim.lsp.buf.format({ async = false })
+              vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
             end,
           })
         end

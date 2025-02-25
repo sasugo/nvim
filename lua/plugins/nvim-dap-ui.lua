@@ -91,6 +91,23 @@ return {
         },
       },
     })
+
+    table.insert(dap.configurations.python, {
+      type = "python",
+      name = "BPKT - Remote File Management Service",
+      request = "attach",
+      mode = "remote",
+      port = 10194,
+      host = "localhost",
+      cwd = cwd,
+      pathMappings = {
+        {
+          localRoot = cwd,
+          remoteRoot = "/app",
+        },
+      },
+    })
+
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()
     end
