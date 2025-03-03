@@ -30,7 +30,7 @@ opt.wrap = false
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-opt.background = "light"
+opt.background = "dark"
 
 -- VimLatex
 vim.g.vimtex_view_method = "zathura"
