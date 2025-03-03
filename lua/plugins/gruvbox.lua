@@ -26,7 +26,4 @@ return {
     dim_inactive = false,
     transparent_mode = false,
   },
-  init = function()
-    vim.cmd([[colorscheme gruvbox]])
-  end
 }
