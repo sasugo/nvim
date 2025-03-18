@@ -62,7 +62,7 @@ return {
 
     table.insert(dap.configurations.python, {
       type = "python",
-      name = "BPKT - Remote User Service",
+      name = "BPKT - Docker User Service",
       request = "attach",
       mode = "remote",
       port = 10191,
@@ -78,7 +78,7 @@ return {
 
     table.insert(dap.configurations.python, {
       type = "python",
-      name = "BPKT - Remote Training Service",
+      name = "BPKT - Docker Training Service",
       request = "attach",
       mode = "remote",
       port = 10192,
@@ -94,10 +94,26 @@ return {
 
     table.insert(dap.configurations.python, {
       type = "python",
-      name = "BPKT - Remote File Management Service",
+      name = "BPKT - Docker File Management Service",
       request = "attach",
       mode = "remote",
       port = 10194,
+      host = "localhost",
+      cwd = cwd,
+      pathMappings = {
+        {
+          localRoot = cwd,
+          remoteRoot = "/app",
+        },
+      },
+    })
+
+    table.insert(dap.configurations.python, {
+      type = "python",
+      name = "BPKT - Docker Report Service",
+      request = "attach",
+      mode = "remote",
+      port = 10193,
       host = "localhost",
       cwd = cwd,
       pathMappings = {
