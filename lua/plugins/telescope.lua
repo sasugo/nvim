@@ -11,7 +11,10 @@ return {
 
     telescope.setup({
       buffers = {
-        sort_lastused = true,
+        sort_mru = true,
+        ignore_current_buffer = true, -- Optional: skips the current buffer in the list
+        previewer = false,          -- Optional: disables preview for faster loading
+        layout_config = { width = 80 }, -- Optional: adjust width for readability
       },
       defaults = {
         default_ignore_patterns = {
