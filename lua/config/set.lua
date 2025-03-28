@@ -22,6 +22,8 @@ opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.directory = "/tmp"
 opt.conceallevel = 2
 opt.colorcolumn = "81"
+opt.cursorcolumn = true
+opt.cursorline = true
 
 opt.smartindent = true
 opt.cindent = true
