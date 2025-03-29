@@ -1,6 +1,7 @@
 return {
   "bluz71/vim-moonfly-colors",
   name = "moonfly",
+  enabled = false,
   lazy = false,
   priority = 1000,
   init = function()
@@ -9,5 +10,5 @@ return {
     -- Lua cursor
     vim.g.moonflyCursorColor = true
     vim.cmd([[colorscheme moonfly]])
-  end
+  end,
 }
