@@ -51,9 +51,6 @@ for _, server in pairs(servers) do
         },
       },
     },
-    flags = {
-      debounce_text_changes = 150,
-    },
   }
 
   server = vim.split(server, "@")[1]
