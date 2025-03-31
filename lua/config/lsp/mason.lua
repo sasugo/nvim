@@ -16,9 +16,11 @@ local settings = {
   ui = {
     border = "none",
     icons = {
-      package_installed = "◍",
-      package_pending = "◍",
-      package_uninstalled = "◍",
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗",
+      },
     },
   },
   log_level = vim.log.levels.INFO,
@@ -48,6 +50,9 @@ for _, server in pairs(servers) do
           globals = { "vim" },
         },
       },
+    },
+    flags = {
+      debounce_text_changes = 150,
     },
   }
 
