@@ -3,7 +3,7 @@ return {
   opts = {
     style = "warmer",
   },
-  enabled = true,
+  enabled = false,
   init = function()
     local opt = vim.opt
     opt.background = "dark"
