@@ -37,3 +37,12 @@ vim.g.loaded_netrwPlugin = 1
 -- VimLatex
 vim.g.vimtex_view_method = "zathura"
 vim.g.vimtex_compiler_method = "latexmk"
+
+
+-- Cursor
+opt.guicursor = {
+  "n-v-c:block",         -- Normal, visual, command-line: block cursor
+  "i-ci-ve:ver25",       -- Insert, command-line insert, visual-exclude: thin vertical bar (25% width)
+  "r-cr:hor20",          -- Replace, command-line replace: horizontal bar (20% height)
+  "sm:block-blinkon0",   -- Showmatch: block cursor, no blinking
+}
