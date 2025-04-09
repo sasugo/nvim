@@ -17,10 +17,10 @@ return {
         },
       },
       pickers = {
-        buffers = {  -- Moved buffers config here under pickers
+        buffers = { -- Moved buffers config here under pickers
           sort_mru = true,
           ignore_current_buffer = true,
-          previewer = false,
+          previewer = true,
           layout_config = {
             width = 0.8,
             height = 0.6,
@@ -30,7 +30,7 @@ return {
         },
         find_files = {
           hidden = true,
-          previewer = false,
+          previewer = true,
           layout_config = {
             width = 0.8,
             height = 0.6,
