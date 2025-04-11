@@ -21,7 +21,7 @@ opt.foldenable = true
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.directory = "/tmp"
 opt.conceallevel = 2
-opt.colorcolumn = "81"
+opt.colorcolumn = "80"
 opt.cursorcolumn = true
 opt.cursorline = true
 
@@ -38,11 +38,10 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.vimtex_view_method = "zathura"
 vim.g.vimtex_compiler_method = "latexmk"
 
-
 -- Cursor
 opt.guicursor = {
-  "n-v-c:block",         -- Normal, visual, command-line: block cursor
-  "i-ci-ve:ver25",       -- Insert, command-line insert, visual-exclude: thin vertical bar (25% width)
-  "r-cr:hor20",          -- Replace, command-line replace: horizontal bar (20% height)
-  "sm:block-blinkon0",   -- Showmatch: block cursor, no blinking
+  "n-v-c:block",      -- Normal, visual, command-line: block cursor
+  "i-ci-ve:ver25",    -- Insert, command-line insert, visual-exclude: thin vertical bar (25% width)
+  "r-cr:hor20",       -- Replace, command-line replace: horizontal bar (20% height)
+  "sm:block-blinkon0", -- Showmatch: block cursor, no blinking
 }
