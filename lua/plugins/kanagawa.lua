@@ -16,7 +16,7 @@ return {
               hint = "#6A9589",
               info = "#658594",
               ok = "#98BB6C",
-              warning = "#FF9E3B",
+              warning = "#D4A017",
             },
             diff = {
               add = "#2B3328",
