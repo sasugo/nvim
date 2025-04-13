@@ -1,5 +1,6 @@
 return {
   "rebelot/terminal.nvim",
+  enabled = false,
   config = function()
     require("terminal").setup()
     local term_map = require("terminal.mappings")
