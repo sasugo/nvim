@@ -43,12 +43,37 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch" },
+        lualine_b = {
+          "branch",
+          {
+            "diff",
+            symbols = { added = " ", modified = " ", removed = " " },
+          },
+          {
+            "diagnostics",
+            sources = { "nvim_lsp" },
+            symbols = { error = "✖ ", warn = "⚠ ", info = "ℹ ", hint = "➤ " },
+          },
+        },
         lualine_c = {
           {
             "filename",
-            path = 1,       -- Show relative path
-            shorting_target = 40, -- Shorten if longer than 40 characters
+            path = 1, -- Show relative path
+            symbols = { modified = "[+]", readonly = "[-]" },
+          },
+          {
+            -- Custom nvim-navic component
+            function()
+              local navic = require("nvim-navic")
+              if navic.is_available() then
+                local location = navic.get_location({ depth_limit = 3 }) -- Reinforce 2-level limit
+                return location
+              end
+              return ""
+            end,
+            cond = function()
+              return require("nvim-navic").is_available()
+            end,
           },
         },
         lualine_x = {
