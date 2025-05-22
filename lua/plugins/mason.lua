@@ -3,8 +3,7 @@ return {
 
   {
     "williamboman/mason-lspconfig.nvim",
-    lazy = false,
-    dependencies = { { "neovim/nvim-lspconfig", lazy = false }, "SmiteshP/nvim-navic" },
+    dependencies = { { "neovim/nvim-lspconfig" }, "SmiteshP/nvim-navic" },
     opts = {},
   },
 }
