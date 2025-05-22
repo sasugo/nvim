@@ -9,9 +9,7 @@ return {
     end
     local augroup = vim.api.nvim_create_augroup("Format", { clear = true })
 
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     local formatting = null_ls.builtins.formatting
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     null_ls.setup({
       debug = false,
       sources = {
@@ -61,7 +59,7 @@ return {
         formatting.csharpier,
       },
       on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
+        if client:supports_method("textDocument/formatting") then
           vim.keymap.set("n", "<Leader>f", function()
             vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf(), timeout_ms = 10000 })
           end, { buffer = bufnr, desc = "[lsp] format" })
