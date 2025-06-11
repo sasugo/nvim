@@ -1,5 +1,7 @@
 local servers = {
   "html",
+  "htmx",
+  "emmet_ls",
   "lua_ls",
   "ts_ls",
   "intelephense",
