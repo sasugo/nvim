@@ -22,6 +22,19 @@ return {
       args = { "/home/gonzalo/dev/vscode-php-debug/out/phpDebug.js" },
     }
 
+    dap.adapters["pwa-chrome"] = {
+      type = "server",
+      host = "localhost",
+      port = "${port}",
+      executable = {
+        command = "node",
+        args = {
+          vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+          "${port}",
+        },
+      },
+    }
+
     dap.adapters.coreclr = {
       type = "executable",
       command = "/usr/local/bin/netcoredbg",
@@ -124,6 +137,53 @@ return {
       },
     })
 
+    local js_based_languages = { "typescript", "javascript", "typescriptreact" }
+    for _, language in ipairs(js_based_languages) do
+      dap.configurations[language] = {
+        -- Launch Angular in Chrome
+        {
+          type = "pwa-chrome",
+          request = "launch",
+          name = "Launch Angular in Chrome",
+          url = "http://localhost:4200",
+          webRoot = "${workspaceFolder}",
+          sourceMaps = true,
+          skipFiles = { "<node_internals>/**", "node_modules/**" },
+          port = 0, -- Use 0 to let the adapter pick a free port
+        },
+        {
+          type = "pwa-chrome",
+          request = "attach",
+          name = "Attach to Chrome",
+          url = "http://localhost:4200",
+          webRoot = "${workspaceFolder}",
+          sourceMaps = true,
+          port = 9222, -- Chrome's default debug port
+        },
+        -- Debug Node.js-based Angular SSR
+        {
+          type = "pwa-node",
+          request = "launch",
+          name = "Launch Angular SSR",
+          program = "${workspaceFolder}/dist/server/main.js", -- Adjust to your build output
+          cwd = "${workspaceFolder}",
+          runtimeExecutable = "node",
+          runtimeArgs = { "-r", "ts-node/register" },
+          sourceMaps = true,
+          skipFiles = { "<node_internals>/**", "node_modules/**" },
+        },
+        -- Attach to Node.js process
+        {
+          type = "pwa-node",
+          request = "attach",
+          name = "Attach to Node.js",
+          processId = require("dap.utils").pick_process,
+          cwd = "${workspaceFolder}",
+          sourceMaps = true,
+        },
+      }
+    end
+
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()
     end
@@ -138,6 +198,7 @@ return {
     end
     dapui.setup()
   end,
+
   keys = {
     { "<leader>b",  "<cmd>lua require('dap').toggle_breakpoint() <CR>", mode = "n", desc = "Toggle Breakpoint" },
     { "<leader>B",  "<cmd>lua require('dap').set_breakpoint() <CR>",    mode = "n", desc = "Set Breakpoint" },

@@ -12,7 +12,6 @@ local servers = {
   "texlab",
   "jedi_language_server",
   "angularls",
-  "js-debug-adapter",
 }
 
 local settings = {
