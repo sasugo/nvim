@@ -31,6 +31,7 @@ return {
         find_files = {
           hidden = true,
           previewer = true,
+          no_ignore = true,
           layout_config = {
             width = 0.8,
             height = 0.6,

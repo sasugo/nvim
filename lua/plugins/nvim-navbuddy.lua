@@ -170,6 +170,9 @@ return {
         reorient = "smart", -- "smart", "top", "mid" or "none"
         scrolloff = nil, -- scrolloff value when navbuddy is open
       },
+      lsp = {
+        auto_attach = true,
+      },
     })
   end,
   keys = {

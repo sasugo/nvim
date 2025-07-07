@@ -45,35 +45,3 @@ if mason_lspconfig_status_ok then
     automatic_installation = true,
   })
 end
-
--- Configure LSP servers with deduplication
-for _, server in pairs(servers) do
-  -- Check if the server is already running
-  local clients = vim.lsp.get_clients({ name = server })
-  if #clients == 0 then
-    local opts = {
-      on_attach = require("config.lsp.handlers").on_attach,
-      capabilities = require("config.lsp.handlers").capabilities,
-      settings = {}, -- Standardize on empty table
-    }
-
-    -- Apply server-specific settings
-    if server == "lua_ls" then
-      opts.settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
-        },
-      }
-    end
-
-    -- Load custom settings if available
-    local require_ok, conf_opts = pcall(require, "config.lsp.settings." .. server)
-    if require_ok then
-      opts = vim.tbl_deep_extend("force", conf_opts, opts)
-    end
-
-    lspconfig[server].setup(opts)
-  end
-end
