@@ -11,49 +11,40 @@ return {
 
     telescope.setup({
       defaults = {
+        layout_strategy = "horizontal", -- or 'vertical', 'flex', etc.
+        path_display = { truncate = 3 },
         default_ignore_patterns = {
           "node_modules",
           "vendor",
         },
-        theme = "dropdown",
+        layout_config = {
+          horizontal = {
+            preview_width = 0.6, -- Increase preview window to 60% of the total width
+            width = 0.9,       -- Total width of Telescope window (90% of screen)
+            height = 0.9,      -- Total height of Telescope window (90% of screen)
+            prompt_position = "top", -- Position of the prompt
+          },
+          vertical = {
+            preview_height = 0.6, -- Increase preview height to 60% of the total height
+            width = 0.9,
+            height = 0.9,
+          },
+        },
       },
       pickers = {
-        buffers = { -- Moved buffers config here under pickers
+        buffers = {
           sort_mru = true,
           ignore_current_buffer = true,
-          theme = "dropdown",
-          previewer = true,
-          layout_config = {
-            width = 0.8,
-            height = 0.8,
-          },
-        },
-        lsp_references = {
-          theme = "dropdown",
-          layout_config = {
-            width = 0.8,
-            height = 0.8,
-          },
         },
         find_files = {
-          theme = "dropdown",
-          layout_config = {
-            width = 0.8,
-            height = 0.8,
-          },
           hidden = true,
-          previewer = true,
           no_ignore = true,
+          previewer = true,
         },
       },
       extensions = {
         live_grep_args = {
           auto_quoting = true,
-          theme = "dropdown",
-          layout_config = {
-            width = 0.8,
-            height = 0.8,
-          },
           mappings = {
             i = {
               ["<C-k>"] = lga_actions.quote_prompt(),
