@@ -95,14 +95,9 @@ M.on_attach = function(client, bufnr)
 	if client.name == "ts_ls" or client.name == "html" or client.name == "cssls" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
-
-	--	if client.name == "angularls" then
-	--		for _, active_client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
-	--			if active_client.name == "ts_ls" then
-	--				vim.lsp.stop_client(active_client.id)
-	--			end
-	--		end
-	--	end
+	if client.server_capabilities.documentSymbolProvider then
+		require("nvim-navic").attach(client, bufnr)
+	end
 
 	-- Set up keymaps and highlighting
 	lsp_keymaps(bufnr)
