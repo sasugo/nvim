@@ -92,7 +92,7 @@ end
 -- On-attach function for LSP clients
 M.on_attach = function(client, bufnr)
 	-- Disable formatting for specific servers
-	if client.name == "ts_ls" or client.name == "html" or client.name == "cssls" then
+	if client.name == "ts_ls" or client.name == "html" or client.name == "cssls" or client.name == "lua_ls" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
 	if client.server_capabilities.documentSymbolProvider then

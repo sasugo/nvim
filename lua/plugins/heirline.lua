@@ -9,6 +9,46 @@ return {
 			"lewis6991/gitsigns.nvim",
 		},
 		config = function()
+			-- PaperColor-inspired color object for heirline.nvim
+			local colors = {
+				-- Background and foreground
+				bg = "#eeeeee", -- PaperColor light background
+				fg = "#4d4d4c", -- PaperColor foreground
+				cursor = "#aaaaaa", -- Cursor color
+
+				-- Syntax-like colors for statusline components
+				red = "#d7005f", -- Errors, deletions
+				green = "#718c00", -- Success, additions
+				yellow = "#d75f00", -- Warnings, changes
+				blue = "#4271ae", -- Normal mode, info
+				purple = "#8959a8", -- Insert mode
+				cyan = "#3e999f", -- Visual mode
+				light_cyan = "#34e2e2", -- Command mode
+				gray = "#969694", -- Inactive components
+				light_gray = "#f5f5f5", -- Subtle highlights
+				dark_gray = "#1c1c1c", -- Borders, separators
+
+				-- Mode-specific colors (mimicking PaperColor's vibrant highlights)
+				n = "#4271ae", -- Blue for normal mode
+				i = "#8959a8", -- Purple for insert mode
+				v = "#3e999f", -- Cyan for visual mode
+				R = "#d7005f", -- Red for replace mode
+				c = "#34e2e2", -- Light cyan for command mode
+				inactive = "#969694", -- Gray for inactive windows
+
+				-- Diagnostics (aligned with PaperColor’s diagnostic colors)
+				error = "#d7005f",
+				warn = "#d75f00",
+				info = "#4271ae",
+				hint = "#3e999f",
+
+				-- Filetype or other UI elements
+				directory = "#718c00", -- Green for directories
+				modified = "#d75f00", -- Yellow for modified files
+			}
+
+			require("heirline").load_colors(colors)
+
 			local conditions = require("heirline.conditions")
 			local utils = require("heirline.utils")
 
@@ -18,7 +58,8 @@ return {
 				-- and the highlight functions, so we compute it only once per component
 				-- evaluation and store it as a component attribute
 				init = function(self)
-					self.mode = vim.fn.mode(1) -- :h mode()
+					-- self.mode = vim.fn.mode(1) -- :h mode()
+					self.mode = vim.api.nvim_get_mode().mode
 				end,
 				-- Now we define some dictionaries to map the output of mode() to the
 				-- corresponding string and color. We can put these into `static` to compute
@@ -84,12 +125,12 @@ return {
 				-- control the padding and make sure our string is always at least 2
 				-- characters long. Plus a nice Icon.
 				provider = function(self)
-					return "🐯%2(" .. self.mode_names[self.mode] .. "%)"
+					return " 🐯%2(" .. self.mode_names[self.mode] .. "%) "
 				end,
 				-- Same goes for the highlight. Now the foreground will change according to the current mode.
 				hl = function(self)
-					local mode = self.mode:sub(1, 1) -- get only the first mode character
-					return { fg = self.mode_colors[mode], bold = true }
+					-- local mode = self.mode:sub(1, 1) -- get only the first mode character
+					return { fg = "bg", bg = colors[self.mode] or colors.normal, bold = true }
 				end,
 				-- Re-evaluate the component only on ModeChanged event!
 				-- Also allows the statusline to be re-evaluated when entering operator-pending mode
@@ -239,34 +280,34 @@ return {
 				-- Add providers for displaying Git status
 				{
 					provider = function(self)
-						return self.status_dict.head and " " .. self.status_dict.head .. " "
+						return self.status_dict.head and "  " .. self.status_dict.head
 					end,
+					hl = { fg = "fg", bg = "bg", bold = true },
 				},
 				{
 					provider = function(self)
 						local count = self.status_dict.added or 0
-						return count > 0 and ("+" .. count)
+						return count > 0 and (" +" .. count)
 					end,
-					hl = { fg = "green" },
+					hl = { fg = "green", bold = true, bg = "bg" },
 				},
 				{
 					provider = function(self)
 						local count = self.status_dict.changed or 0
-						return count > 0 and ("~" .. count)
+						return count > 0 and (" ~" .. count)
 					end,
-					hl = { fg = "yellow" },
+					hl = { fg = "yellow", bg = "bg", bold = true },
 				},
 				{
 					provider = function(self)
 						local count = self.status_dict.removed or 0
-						return count > 0 and ("-" .. count)
+						return count > 0 and (" -" .. count .. " ")
 					end,
-					hl = { fg = "red" },
+					hl = { fg = "red", bg = "bg", bold = true },
 				},
 			}
 			-- Get diagnostic sign icons
 			local function get_diagnostic_sign_text(severity)
-				local signs = vim.fn.sign_getdefined()
 				local sign_name = "DiagnosticSign" .. severity
 				local sign = vim.fn.sign_getdefined(sign_name)
 				if sign and sign[1] and sign[1].text then
@@ -329,24 +370,22 @@ return {
 
 			local WorkDir = {
 				provider = function()
-					local icon = (vim.fn.haslocaldir(0) == 1 and "l" or "g") .. " " .. " "
+					local icon = (vim.fn.haslocaldir(0) == 1 and " l" or " g") .. " " .. "  "
 					local cwd = vim.fn.getcwd(0)
 					cwd = vim.fn.fnamemodify(cwd, ":~")
 					if not conditions.width_percent_below(#cwd, 0.25) then
 						cwd = vim.fn.pathshorten(cwd)
 					end
-					local trail = cwd:sub(-1) == "/" and "" or "/"
+					local trail = cwd:sub(-1) == "/" and " " or "/ "
 					return icon .. cwd .. trail
 				end,
-				hl = { fg = "blue", bold = true },
+				hl = { fg = "fg", bold = true, bg = "bg" },
 			}
 
 			-- Add to your statusline or winbar
 			local StatusLine = {
 				ViMode,
-				{ provider = " | " },
 				WorkDir,
-				{ provider = " | " },
 				Git,
 				{ provider = " | " },
 				FileNameBlock,
@@ -360,13 +399,10 @@ return {
 				ScrollBar,
 			}
 
-			local latte = require("catppuccin.palettes").get_palette("latte")
-
 			-- Setup heirline
 			require("heirline").setup({
 				statusline = StatusLine,
 				opts = {
-					colors = latte,
 					disable_winbar_cb = function(args)
 						return conditions.buffer_matches({
 							buftype = { "nofile", "prompt", "help", "quickfix" },
