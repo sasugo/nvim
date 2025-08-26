@@ -159,10 +159,10 @@ return {
 						require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
 				end,
 				provider = function(self)
-					return self.icon and (self.icon .. " ")
+					return self.icon and (" " .. self.icon .. " ")
 				end,
 				hl = function(self)
-					return { fg = self.icon_color }
+					return { fg = self.icon_color, bg = "bg" }
 				end,
 			}
 
@@ -180,8 +180,9 @@ return {
 					if not conditions.width_percent_below(#filename, 0.25) then
 						filename = vim.fn.pathshorten(filename)
 					end
-					return filename
+					return filename .. " "
 				end,
+				hl = { fg = "fg", bg = "bg", bold = true },
 			}
 
 			local FileFlags = {
@@ -189,14 +190,14 @@ return {
 					condition = function()
 						return vim.bo.modified
 					end,
-					provider = "[+]",
-					hl = { fg = "green" },
+					provider = "[+] ",
+					hl = { fg = "green", bg = "bg", bold = true },
 				},
 				{
 					condition = function()
 						return not vim.bo.modifiable or vim.bo.readonly
 					end,
-					provider = "",
+					provider = " ",
 					hl = { fg = "orange" },
 				},
 			}
@@ -219,7 +220,7 @@ return {
 			FileNameBlock = utils.insert(
 				FileNameBlock,
 				FileIcon,
-				utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
+				FileName, -- a new table where FileName is a child of FileNameModifier
 				FileFlags,
 				{ provider = "%<" } -- this means that the statusline is cut here when there's not enough space
 			)
@@ -231,6 +232,7 @@ return {
 				-- %c = column number
 				-- %P = percentage through file of displayed window
 				provider = "%7(%l/%3L%):%2c %P",
+				hl = { bold = true, fg = "fg", bg = "bg" },
 			}
 			-- I take no credits for this! 🦁
 			local ScrollBar = {
@@ -239,6 +241,8 @@ return {
 					-- Another variant, because the more choice the better.
 					-- sbar = { '🭶', '🭷', '🭸', '🭹', '🭺', '🭻' }
 				},
+				hl = { bold = true, fg = "fg", bg = "bg" },
+
 				provider = function(self)
 					local curr_line = vim.api.nvim_win_get_cursor(0)[1]
 					local lines = vim.api.nvim_buf_line_count(0)
@@ -260,8 +264,9 @@ return {
 					for _, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
 						table.insert(names, server.name)
 					end
-					return " [" .. table.concat(names, " ") .. "]"
+					return " [" .. table.concat(names, " ") .. "] "
 				end,
+				hl = { fg = "fg", bg = "bg", bold = true },
 			}
 
 			-- Full nerd (with icon colors and clickable elements)!
@@ -280,7 +285,7 @@ return {
 				-- Add providers for displaying Git status
 				{
 					provider = function(self)
-						return self.status_dict.head and "  " .. self.status_dict.head
+						return self.status_dict.head and " " .. self.status_dict.head
 					end,
 					hl = { fg = "fg", bg = "bg", bold = true },
 				},
@@ -341,30 +346,30 @@ return {
 				{
 					provider = function(self)
 						local count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-						return count > 0 and (self.error_icon .. count .. " ")
+						return count > 0 and (self.error_icon .. " " .. count .. " ")
 					end,
-					hl = { fg = "red" },
+					hl = { fg = "red", bg = "bg", bold = true },
 				},
 				{
 					provider = function(self)
 						local count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-						return count > 0 and (self.warn_icon .. count .. " ")
+						return count > 0 and (self.warn_icon .. " " .. count .. " ")
 					end,
-					hl = { fg = "yellow" },
+					hl = { fg = "yellow", bg = "bg", bold = true },
 				},
 				{
 					provider = function(self)
 						local count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
-						return count > 0 and (self.info_icon .. count .. " ")
+						return count > 0 and (self.info_icon .. " " .. count .. " ")
 					end,
-					hl = { fg = "blue" },
+					hl = { fg = "blue", bg = "bg", bold = true },
 				},
 				{
 					provider = function(self)
 						local count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
-						return count > 0 and (self.hint_icon .. count .. " ")
+						return count > 0 and (self.hint_icon .. " " .. count .. " ")
 					end,
-					hl = { fg = "green" },
+					hl = { fg = "green", bg = "bg", bold = true },
 				},
 			}
 
@@ -385,18 +390,15 @@ return {
 			-- Add to your statusline or winbar
 			local StatusLine = {
 				ViMode,
-				WorkDir,
-				Git,
-				{ provider = " | " },
 				FileNameBlock,
-				{ provider = " | " },
+				Git,
 				LSPActive,
-				{ provider = " | " },
 				Diagnostics,
 				{ provider = "%=" }, -- Right-align what follows
 				Ruler,
 				{ provider = " " },
 				ScrollBar,
+				hl = { bg = colors.bg },
 			}
 
 			-- Setup heirline
