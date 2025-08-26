@@ -180,9 +180,9 @@ return {
 					if not conditions.width_percent_below(#filename, 0.25) then
 						filename = vim.fn.pathshorten(filename)
 					end
-					return filename .. " "
+					return filename
 				end,
-				hl = { fg = "fg", bg = "bg", bold = true },
+				hl = { fg = colors.fg, bg = colors.bg, bold = true },
 			}
 
 			local FileFlags = {
@@ -190,15 +190,15 @@ return {
 					condition = function()
 						return vim.bo.modified
 					end,
-					provider = "[+] ",
-					hl = { fg = "green", bg = "bg", bold = true },
+					provider = "[+]",
+					hl = { fg = colors.green, bg = colors.bg, bold = true },
 				},
 				{
 					condition = function()
 						return not vim.bo.modifiable or vim.bo.readonly
 					end,
-					provider = " ",
-					hl = { fg = "orange" },
+					provider = "",
+					hl = { fg = colors.purple },
 				},
 			}
 
@@ -211,7 +211,7 @@ return {
 				hl = function()
 					if vim.bo.modified then
 						-- use `force` because we need to override the child's hl foreground
-						return { fg = "cyan", bold = true, force = true }
+						return { fg = colors.blue, bold = true, force = true }
 					end
 				end,
 			}
@@ -220,7 +220,7 @@ return {
 			FileNameBlock = utils.insert(
 				FileNameBlock,
 				FileIcon,
-				FileName, -- a new table where FileName is a child of FileNameModifier
+				utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
 				FileFlags,
 				{ provider = "%<" } -- this means that the statusline is cut here when there's not enough space
 			)
@@ -264,7 +264,7 @@ return {
 					for _, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
 						table.insert(names, server.name)
 					end
-					return " [" .. table.concat(names, " ") .. "] "
+					return " [" .. table.concat(names, " ") .. "]"
 				end,
 				hl = { fg = "fg", bg = "bg", bold = true },
 			}
@@ -285,30 +285,30 @@ return {
 				-- Add providers for displaying Git status
 				{
 					provider = function(self)
-						return self.status_dict.head and " " .. self.status_dict.head
+						return self.status_dict.head and " " .. self.status_dict.head .. " "
 					end,
-					hl = { fg = "fg", bg = "bg", bold = true },
+					hl = { fg = colors.fg, bg = colors.bg, bold = true },
 				},
 				{
 					provider = function(self)
 						local count = self.status_dict.added or 0
-						return count > 0 and (" +" .. count)
+						return count > 0 and ("+" .. count)
 					end,
-					hl = { fg = "green", bold = true, bg = "bg" },
+					hl = { fg = colors.green, bold = true, bg = colors.bg },
 				},
 				{
 					provider = function(self)
 						local count = self.status_dict.changed or 0
 						return count > 0 and (" ~" .. count)
 					end,
-					hl = { fg = "yellow", bg = "bg", bold = true },
+					hl = { fg = colors.yellow, bg = colors.bg, bold = true },
 				},
 				{
 					provider = function(self)
 						local count = self.status_dict.removed or 0
 						return count > 0 and (" -" .. count .. " ")
 					end,
-					hl = { fg = "red", bg = "bg", bold = true },
+					hl = { fg = colors.red, bg = colors.bg, bold = true },
 				},
 			}
 			-- Get diagnostic sign icons
@@ -348,28 +348,28 @@ return {
 						local count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 						return count > 0 and (self.error_icon .. " " .. count .. " ")
 					end,
-					hl = { fg = "red", bg = "bg", bold = true },
+					hl = { fg = colors.red, bg = colors.bg, bold = true },
 				},
 				{
 					provider = function(self)
 						local count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
 						return count > 0 and (self.warn_icon .. " " .. count .. " ")
 					end,
-					hl = { fg = "yellow", bg = "bg", bold = true },
+					hl = { fg = colors.yellow, bg = colors.bg, bold = true },
 				},
 				{
 					provider = function(self)
 						local count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
 						return count > 0 and (self.info_icon .. " " .. count .. " ")
 					end,
-					hl = { fg = "blue", bg = "bg", bold = true },
+					hl = { fg = colors.blue, bg = colors.bg, bold = true },
 				},
 				{
 					provider = function(self)
 						local count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
 						return count > 0 and (self.hint_icon .. " " .. count .. " ")
 					end,
-					hl = { fg = "green", bg = "bg", bold = true },
+					hl = { fg = colors.green, bg = colors.bg, bold = true },
 				},
 			}
 
@@ -391,8 +391,11 @@ return {
 			local StatusLine = {
 				ViMode,
 				FileNameBlock,
+				{ provider = " " },
 				Git,
+				{ provider = " " },
 				LSPActive,
+				{ provider = " " },
 				Diagnostics,
 				{ provider = "%=" }, -- Right-align what follows
 				Ruler,
